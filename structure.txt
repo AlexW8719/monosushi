@@ -1,0 +1,31 @@
+app/
+	components/
+		header.component
+		footer.component
+	pages/
+		home.component
+		discount.component
+		discount-info.component
+		categories.component
+		products.component
+		products-info.component
+		delivery-payment.component
+		about.component
+		privacy.component
+	shared/
+		styles/
+			_variables.scss
+			_mixins.scss
+			_base.scss
+		interfaces/
+		pipes/
+		directives/
+		guards/
+		services/
+	admin.component
+		admin-discount.component
+		admin-category.component
+		admin-product.component
+		admin-order.component
+
+

@@ -1,0 +1,23 @@
+<div class="container my-5">
+	<div class="row">
+		<div class="col-3">
+			<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+				<button type="button" class="btn btn-outline main" [routerLink]="[ '-discounts' ]"
+					routerLinkActive="active">Акції</button>
+				<button type="button" class="btn btn-outline main" [routerLink]="[ 'catecory' ]"
+					routerLinkActive="active">Категорії</button>
+				<button type="button" class="btn btn-outline main" [routerLink]="[ 'products' ]"
+					routerLinkActive="active">Товари</button>
+				<button type="button" class="btn btn-outline main" [routerLink]="[ 'orders' ]"
+					routerLinkActive="active">Замовлення</button>
+			</div>
+			<div class="exAdmin mt-3">
+				<button [routerLink]="[ '/' ]" routerLinkActive="active" type="button" class="btn btn-outline
+					exitAdmin">Вихід</button>
+			</div>
+		</div>
+		<div class="col-8">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>

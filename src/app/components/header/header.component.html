@@ -1,0 +1,63 @@
+<nav>
+	<a href="" class="logo-home">
+		<img src="../../../assets/img/logo.svg" alt="">
+	</a>
+	<div class="products">
+		<a class="product" [routerLink]="[ '/discouts' ]" routerLinkActive="active">
+			<img src="" alt="">
+			<span>Акції</span>
+		</a>
+		<a class="product" [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">
+			<img src="" alt="">
+			<span>Роли</span>
+		</a>
+		<a class="product" [routerLink]="[ '/products/sets' ]" routerLinkActive="active">
+			<img src="" alt="">
+			<span>Сети</span>
+		</a>
+		<a class="product" [routerLink]="[ '/products/drinks' ]" routerLinkActive="active">
+			<img src="" alt="">
+			<span>Напої</span>
+		</a>
+		<a class="product" [routerLink]="[ '/products/sauces' ]" routerLinkActive="active">
+			<img src="" alt="">
+			<span>Соуси</span>
+		</a>
+	</div>
+	<div class="dropdown">
+		<button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<img src="../../../assets/img/pngwing.com.png" alt="">
+		</button>
+		<ul class="dropdown-menu">
+			<li>
+				<a [routerLink]="[ '/delivery-and-payments' ]" routerLinkActive="rout-active" class="dropdown-item">
+					Доставка та
+					оплата
+				</a>
+			</li>
+			<li><a class="dropdown-item" [routerLink]="[ '/about' ]" routerLinkActive="active">Про нас</a></li>
+			<li><a class="dropdown-item" [routerLink]="[ '/discouts' ]" routerLinkActive="active">Акції</a></li>
+		</ul>
+	</div>
+	<div class="header-phone-call">
+		<a href="tel:#">
+			<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="">
+		</a>
+	</div>
+	<div class="header-info">
+		<a><b>(097) 878 08 37</b></a>
+		<p>Працюємо з <b>11:00</b> до <b>21:30</b></p>
+	</div>
+	<div class="admin">
+		<a [routerLink]="[ '/admin' ]" routerLinkActive="active">
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
+		</a>
+	</div>
+	<div class="header-bask">
+		<div>
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="">
+			<i>0</i>
+		</div>
+		<span> 0 грн</span>
+	</div>
+</nav>

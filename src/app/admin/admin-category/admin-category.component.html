@@ -1,0 +1,111 @@
+<div class="conteiner">
+	<div class="aboutFAQ mb-4">
+
+
+		<div class="accordion accordion-flush" id="myAccordion">
+
+			<div class="accordion-item">
+
+				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
+					{{!editStatus ? "Додати категорію" :"Оновити категорію"}}
+				</button>
+
+				<div id="flush-collapseOne"
+					[class]="!editStatus ? 'accordion-collapse collapse border-0' : 'accordion-collapse border-0'"
+					aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+
+					<div class="accordion-body">
+						<form [formGroup]="categoryForm" (ngSubmit)="addCategory()" class="row g-3" name="category">
+							<div class="col-md-6">
+								<input name="categoryName" formControlName="name" type="text" class="form-control"
+									placeholder="*Назва">
+								<div class="valid-feedback"
+									[style.display]="!categoryForm.controls['name'].errors ? 'block' : 'none'">
+									Looks good!
+								</div>
+								<div class="invalid-feedback"
+									[style.display]="categoryForm.controls['name'].errors ? 'block': 'none'">
+									Name is required...
+								</div>
+							</div>
+							<div class="col-md-6">
+
+								<input name="categoryPath" formControlName="path" type="text" class="form-control"
+									id="validationDefault02" placeholder="*Шлях" required>
+								<div class="valid-feedback"
+									[style.display]="!categoryForm.controls['path'].errors ? 'block' : 'none'">
+									Looks good!
+								</div>
+								<div class="invalid-feedback"
+									[style.display]="categoryForm.controls['path'].errors ? 'block': 'none'">
+									Path is required...
+								</div>
+							</div>
+
+							<div class="col-12">
+								<div class="input-group mb-1" *ngIf="!isUploaded">
+									<div class="w-100">
+										<input name="categoryImagePath" type="file" class="form-control" id="inputGroupFile01"
+											(change)="uplod($event)">
+
+										<div class="invalid-feedback"
+											[style.display]="categoryForm.controls['imagePath'].errors ? 'block': 'none'">
+											imagePath is required...
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-striped" role="progressbar"
+												aria-label="Default striped example" [style.width.%]="uploadPersent"
+												aria-valuemin="0" aria-valuemax="100">
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div *ngIf="isUploaded" class="imagesUp">
+									<img [src]="valueByControl('imagePath')" alt="" class="uploadedImg">
+									<div class=" mt-2">
+										<button class="btn btn-primary" type="button" (click)="deleteImg()">Видалити</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<button class="btn mainColor " type="submit" [disabled]="categoryForm.invalid">{{!editStatus
+									?
+									"Додати" :"Оновити"}}</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">№</th>
+				<th scope="col">Назва</th>
+				<th scope="col">Шлях</th>
+				<th scope="col">Картинка</th>
+				<th scope="col">Дії</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of adminCategories; let i=index">
+				<td>{{i+1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.path}}</td>
+				<td><img [src]="item.imagePath" alt=""></td>
+				<td>
+					<p><button class="btn btn-primary" type="button" (click)="editCategory(item)"
+							[disabled]="disabled">Редагувати</button>
+					</p>
+					<p><button class="btn btn-primary" type="button" (click)="deleteCategory(item)"
+							[disabled]="disabled">Видалити</button>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

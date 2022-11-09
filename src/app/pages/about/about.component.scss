@@ -1,0 +1,70 @@
+div.about{
+	margin-left:auto ;
+	margin-right:auto ;
+	text-align: left;
+}
+
+h1,h2{
+ text-align: center;
+}
+
+div.aboutTitle{
+	text-align: center;
+}
+hr{
+	width: 160px;
+	height: 5px;
+	border: none;
+	background: #b5d8f7;
+	margin:5px auto 0 auto;
+}
+
+div.aboutGoal{
+	width: 715px;
+	margin-left:auto ;
+	margin-right:auto ;
+}
+
+div.aboutGoal p{
+	margin: 0;
+	padding: 0;
+}
+
+div.aboutGreeting{
+	margin-left:auto ;
+	margin-right:auto ;
+	width: 80%;
+	
+}
+
+div.aboutGreeting h2{
+	text-align: left;
+}
+
+div.aboutGreeting img{
+	width: 395px;
+	height: 395px;
+}
+
+div.aboutStrength, div.img{
+	text-align: center;
+}
+
+div.img{
+	width: 85px;
+	height: 85px;
+	background-color: #b5d8f7;
+	line-height: 85px;
+	border-radius: 10px;
+}
+
+div.aboutFAQ{
+	margin-left:auto ;
+	margin-right:auto ;
+	width: 80%;
+}
+
+div.accordion-item h2{
+	height: 75px;
+	line-height: 40px;
+}

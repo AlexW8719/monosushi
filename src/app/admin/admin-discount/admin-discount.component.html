@@ -1,0 +1,125 @@
+<div class="conteiner">
+	<div class="aboutFAQ mb-4">
+
+		<div class="accordion accordion-flush" id="myAccordion">
+
+			<div class="accordion-item">
+
+				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
+					{{!editStatus ? "Додати акцію" : "Оновити акцію"}}
+				</button>
+
+				<div id="flush-collapseOne"
+					[class]="!editStatus ? 'accordion-collapse collapse border-0' : 'accordion-collapse border-0'"
+					aria-labelledby="flush-headingOne" data-bs-parent="#myAccordion">
+
+					<div class="accordion-body">
+						<form [formGroup]="discountForm" (ngSubmit)="addDiscount()" class="row g-3" name="discount">
+							<div class="col-md-6">
+								<input name="discountName" formControlName="name" type="text" class="form-control"
+									id="validationDefault01" placeholder="*Назва">
+								<div class="valid-feedback"
+									[style.display]="!discountForm.controls['name'].errors ? 'block' : 'none'">
+									Looks good!
+								</div>
+								<div class="invalid-feedback"
+									[style.display]="discountForm.controls['name'].errors ? 'block': 'none'">
+									Name is required...
+								</div>
+							</div>
+							<div class="col-md-6">
+
+								<input name="discountTitle" formControlName="title" type="text" class="form-control"
+									id="validationDefault02" placeholder="*Заголовок">
+								<div class="valid-feedback"
+									[style.display]="!discountForm.controls['title'].errors ? 'block' : 'none'">
+									Looks good!
+								</div>
+								<div class="invalid-feedback"
+									[style.display]="discountForm.controls['title'].errors ? 'block': 'none'">
+									Title is required...
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-floating">
+									<textarea name="discountDescription" formControlName="description" class="form-control"
+										placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+									<label for="floatingTextarea2">*Опис</label>
+									<div class="valid-feedback"
+										[style.display]="!discountForm.controls['description'].errors ? 'block' : 'none'">
+										Looks good!
+									</div>
+									<div class="invalid-feedback"
+										[style.display]="discountForm.controls['description'].errors ? 'block': 'none'">
+										Name is required...
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="input-group mb-3" *ngIf="!isUploaded">
+
+									<input type="file" class="form-control" id="inputGroupFile01" (change)="upload($event)">
+									<div class="invalid-feedback"
+										[style.display]="discountForm.controls['imgPath'].errors ? 'block': 'none'">
+										imagePath is required...
+									</div>
+									<div class="progress mt-2 w-100">
+
+										<div class="progress-bar progress-bar-striped" role="progressbar"
+											aria-label="Default striped example" [style.width.%]="uploadPersent" aria-valuemin="0"
+											aria-valuemax="100">
+										</div>
+									</div>
+								</div>
+								<div *ngIf="isUploaded" class="imagesUp">
+									<img [src]="valueByControl('imgPath')" alt="" class="uploadedImg">
+									<div class=" mt-2">
+										<button class="btn btn-primary" type="button" (click)="deleteImg()">Видалити</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<button class="btn mainColor" type="submit" [disabled]="discountForm.invalid">
+									{{!editStatus ? "Додати" : "Оновити"}}
+								</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Дата</th>
+				<th scope="col">Назва</th>
+				<th scope="col">Заголовок</th>
+				<th scope="col">Опис</th>
+				<th scope="col">Картинка</th>
+				<th scope="col">Дії</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of adminDiscounts;">
+				<td>{{item.date | date:'dd.MM.YYYY'}} р.</td>
+				<td>{{item.name}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.description | slice:0:25}}...</td>
+				<td><img [src]="item.imgPath" alt=""></td>
+				<td>
+					<p><button class="btn btn-primary" type="button" (click)="editDiscount(item)"
+							[disabled]="disabled">Редагувати</button></p>
+					<p><button class="btn btn-primary" type="button" (click)="deleteDiscount(item)"
+							[disabled]="disabled">Видалити</button></p>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>

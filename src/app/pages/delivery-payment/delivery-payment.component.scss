@@ -1,0 +1,25 @@
+div.container{
+text-align: center;
+}
+
+div.zone, div.paymentType, div.cash, div.cashless{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+div.cash p, div.cashless p, div.cash h3, div.cashless h3{
+	text-align: left;
+}
+
+div.cash, div.cashless{
+	width: 300px;
+}
+
+div.img{
+	margin: 0 20px;
+}
+
+div.paymentContent p{
+	text-align: left;
+}

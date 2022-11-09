@@ -1,0 +1,27 @@
+button.main{
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	height: 50px;
+	border-top: 1px solid rgb(138, 136, 136);
+	border-right:none;
+	border-bottom: 1px solid rgb(138, 136, 136);
+	border-left:none;
+	border-radius: 0;
+}
+
+button.main:hover{
+	background-color: #b5d8f7;
+	font-weight: bold;
+}
+
+div.exAdmin{
+	width: 150px;
+	text-align: center;
+}
+
+button.exitAdmin{
+	height: 50px;
+	background: #b5d8f7;
+	font-weight: bold;
+}
