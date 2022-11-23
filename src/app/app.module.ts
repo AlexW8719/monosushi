@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ToastrModule } from 'ngx-toastr';
+
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,9 +30,9 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -53,12 +56,14 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
   ],
   imports: [
     FormsModule,
+    // BrowserAnimationsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    // ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

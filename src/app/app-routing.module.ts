@@ -12,21 +12,25 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+import { DiscountInfoComponent } from './pages/discount-info/discount-info.component';
+import { ProductsInfoComponent } from './pages/products-info/products-info.component';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'discouts', component: DiscountComponent },
+  { path: 'discount-info/:id', component: DiscountInfoComponent },
   { path: 'delivery-and-payments', component: DeliveryPaymentComponent },
   { path: 'about', component: AboutComponent },
   { path: 'products/:category', component: ProductsComponent },
+  { path: 'products-info/:path', component: ProductsInfoComponent },
 
   {
     path: 'admin', component: AdminComponent, children: [
       { path: '-discounts', component: AdminDiscountComponent },
       { path: 'catecory', component: AdminCategoryComponent },
-      { path: 'products', component: AdminProductComponent },
+      { path: 'products-adm', component: AdminProductComponent },
       { path: 'orders', component: AdminOrderComponent },
     ]
   }

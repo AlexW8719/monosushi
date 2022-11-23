@@ -77,9 +77,12 @@ export class AdminDiscountComponent implements OnInit {
     } else {
       this._discountServise.create(this.discountForm.value).subscribe(() => {
         this.getDiscounts();
-        this.isUploaded = false;
-        this.uploadPersent = 0;
+
       })
+      this.isUploaded = false;
+      this.uploadPersent = 0;
+      this.editStatus = false;
+      this.disabled = false;
     }
     this.discountForm.reset();
   }

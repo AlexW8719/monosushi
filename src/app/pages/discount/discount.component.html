@@ -3,4 +3,27 @@
 		<hr class="">
 		<h1>Акції</h1>
 	</div>
-</div>
+	<ng-container *ngIf="userDiscounts.length>0; else elseTemplate">
+		<div class="discounts d-flex flex-row flex-wrap justify-content-between">
+			<div class="discountCard mb-3 col-xl-5 col-md-6 col-12 d-flex flex-column justify-content-center"
+				*ngFor="let item of userDiscounts">
+				<div class="discountImagePath">
+					<img [src]="item.imgPath" alt="">
+				</div>
+				<div class="discountTitle my-2">
+					<h3>{{item.name}}</h3>
+				</div>
+				<hr class="my-1">
+				<div class="discountInfo text-center my-2">
+					<button [routerLink]="[ '/discount-info', item.id ]">дізнатись більше</button>
+				</div>
+			</div>
+
+
+		</div>
+	</ng-container>
+	<ng-template #elseTemplate>
+		<div class="card-body">
+			<h1 class="text-center">Discounts not added yet</h1>
+		</div>
+	</ng-template>

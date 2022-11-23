@@ -3,4 +3,79 @@
 		<hr class="">
 		<h1>Продукти</h1>
 	</div>
+	<div class="tabs w-100">
+		<ul class="nav nav-tabs d-flex justify-content-between flex-nowrap" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+					type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Всі</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+					type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Філадельфія</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+					role="tab" aria-controls="contact-tab-pane" aria-selected="false">Каліфорнія</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+					type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Запеченні</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+					role="tab" aria-controls="contact-tab-pane" aria-selected="false">Фірмові</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+					role="tab" aria-controls="contact-tab-pane" aria-selected="false">Макі</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="all-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+					role="tab" aria-controls="contact-tab-pane" aria-selected="false">Преміум</button>
+			</li>
+
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active d-flex justify-content-between flex-wrap" id="all-tab-pane"
+				role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+				<ng-container *ngIf="userProducts.length>0; else elseTemplate">
+					<div class="col-sm-6 col-lg-4 col-xl-3 p-1 mx-2 my-3" *ngFor="let item of userProducts">
+						<div [routerLink]="[ '/products-info', item.path ]" class="productImagePath">
+							<img [src]="item.imagePath" alt="">
+						</div>
+						<div [routerLink]="[ '/products-info', item.path ]" class="productTitle">
+							<h3 class="text-center my-3">{{item.title}}</h3>
+						</div>
+						<div class="productDescription d-flex justify-content-between flex-nowrap">
+							<div class="productAbout">
+								<p>{{item.description}}</p>
+							</div>
+							<div class="productwaight col-3">
+								<p><b>{{item.productSize}} г.</b></p>
+							</div>
+						</div>
+						<div class="productOrder d-flex justify-content-between flex-nowrap">
+							<div class="productPrice">
+								<p><b>{{item.price}} грн</b></p>
+							</div>
+							<div class="col-5 productOrderCount d-flex flex-row justify-content-between">
+								<button class="text-center">-</button>
+								<p><b>0</b></p>
+								<button class="text-center">+</button>
+							</div>
+							<div class="productMakeOrder">
+								<button>Замовити</button>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+				<ng-template #elseTemplate>
+					<div class="card-body">
+						<h1 class="text-center">Products not added yet</h1>
+					</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>
 </div>

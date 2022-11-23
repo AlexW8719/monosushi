@@ -12,3 +12,30 @@ hr{
 	background: #b5d8f7;
 	margin:5px auto 0 auto;
 }
+
+div.discounts, div.discountInfo button{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+div.discounts img{
+	border-radius:10px;
+}
+
+div.discounts hr{
+	width: 100%;
+}
+
+div.discountInfo button{
+	font-style: 18px;
+	padding: 10px 10px;
+	border:2px solid #b5d8f7;
+	border-radius: 10px;
+	background-color: #b5d8f7;
+}
+div.discountInfo button:hover{
+	background-color: white;
+}
+// div.discountTitle h3:hover{
+// 	color:#b5d8f7 ;
+// }

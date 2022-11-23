@@ -12,3 +12,40 @@ hr{
 	background: #b5d8f7;
 	margin:5px auto 0 auto;
 }
+
+div.productOrder{
+	line-height: 40px;
+}
+
+div.productMakeOrder button{
+	padding:0 3px;
+	border-radius:10px;
+	font-weight: bold;
+	background-color: #b5d8f7;
+}
+
+div.productImagePath:hover, div.productTitle{
+	cursor: pointer;
+}
+
+div.productOrderCount{
+	padding:0 5px;
+	width: 40%;
+	height: 40px;
+	border:1px solid black;
+	border-radius: 10px;
+}
+
+div.productOrderCount button{
+	width: 30%;
+}
+
+div.productOrderCount button:hover{
+	background-color:#b5d8f7;
+	cursor: pointer;
+	border-radius:10px;
+}
+
+div.productOrderCount p{
+line-height: 40px;
+}
