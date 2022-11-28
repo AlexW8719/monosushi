@@ -40,11 +40,11 @@
 				role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 
 				<ng-container *ngIf="userProducts.length>0; else elseTemplate">
-					<div class="col-sm-6 col-lg-4 col-xl-3 p-1 mx-2 my-3" *ngFor="let item of userProducts">
-						<div [routerLink]="[ '/products-info', item.path ]" class="productImagePath">
+					<div class="col-sm-6 col-lg-4 col-xl-3 p-1 mx-2 my-3 text-center" *ngFor="let item of userProducts">
+						<div [routerLink]="[ '/products/'+ item.category.path, item.id ]" class="productImagePath">
 							<img [src]="item.imagePath" alt="">
 						</div>
-						<div [routerLink]="[ '/products-info', item.path ]" class="productTitle">
+						<div [routerLink]="[ '/products/', + item.category.path, item.id ]" class="productTitle">
 							<h3 class="text-center my-3">{{item.title}}</h3>
 						</div>
 						<div class="productDescription d-flex justify-content-between flex-nowrap">

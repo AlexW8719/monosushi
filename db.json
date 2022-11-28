@@ -97,6 +97,54 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fproducts%2Fphoto_2022-07-09_13-28-56.jpg?alt=media&token=e42e28c4-920a-43a4-82a9-b1ddbea73032",
       "count": null,
       "id": 4
+    },
+    {
+      "category": {
+        "name": "Сети",
+        "path": "sets",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fcaregories%2Fsets.svg?alt=media&token=057e7850-f9d4-4dcd-83a3-d1d47c4fa195",
+        "id": 3
+      },
+      "title": "Сет Філадельфія",
+      "path": "zapechenyj-set",
+      "description": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "productSize": 1070,
+      "price": 950,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fproducts%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled.jpg?alt=media&token=1a0db0ec-1286-4c4f-8f32-854f8fda4cbf",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "name": "Напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fcaregories%2Fdrinks.svg?alt=media&token=0f8fef13-2cdd-46ae-8e7b-94c452136916",
+        "id": 4
+      },
+      "title": "Pepsi",
+      "path": "pepsi",
+      "description": "Напої",
+      "productSize": 0.33,
+      "price": 31,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fproducts%2Fpepsicola.jpg.pagespeed.ce._GE3wDu348.jpg?alt=media&token=8d8699d7-b244-4542-9537-31f38fcf62a1",
+      "count": null,
+      "id": 6
+    },
+    {
+      "category": {
+        "name": "Соуси",
+        "path": "sauces",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fcaregories%2Fsauces.svg?alt=media&token=61a896cd-a629-4dd9-8426-324a77ea53ae",
+        "id": 5
+      },
+      "title": "Імбир",
+      "path": "imbyr",
+      "description": "соуси",
+      "productSize": 30,
+      "price": 12,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fproducts%2F3333.png.pagespeed.ce.vQR20Z8Iaq.png?alt=media&token=91490373-4e80-412c-b8f1-dd714db72b7a",
+      "count": null,
+      "id": 7
     }
   ],
   "categories": [

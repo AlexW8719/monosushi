@@ -1,1 +1,36 @@
-<p>products-info works!</p>
+<div class="container my-5">
+	<div class="card mb-3 p-2">
+		<div class="row">
+			<div class="col-md-8 text-center">
+				<img [style.height]="'60%'" [src]="currentProduct.imagePath" class="img-fluid rounded-start"
+					[alt]="currentProduct.imagePath">
+			</div>
+			<div class="col-md-4">
+				<div class="card-body">
+					<h4 class="card-title">{{currentProduct.title}}</h4>
+					<p class="card-text"><b>Склад:</b> {{currentProduct.description}}</p>
+					<p class="card-text"><b>Вага:</b> {{currentProduct.productSize}} г</p>
+
+					<div class="btn-group align-middle col-12 d-flex justify-content-between" role="group"
+						aria-label="Basic example">
+						<b>Ціна: {{currentProduct.price * currentProduct.count}} грн.</b>
+
+						<div class="text-end">
+							<button (click)="productCount(currentProduct, false)" type="button"
+								class="btn btn-primary">-</button>
+							<input class="text-center" [style.width]="'40px'" type="text" aria-label="Last name" disabled
+								[value]="currentProduct.count">
+							<button (click)="productCount(currentProduct, true)" type="button"
+								class="btn btn-primary">+</button>
+						</div>
+					</div>
+					<div class="text-end">
+						<button (click)="addToBasket(currentProduct)" type="button"
+							class="btn btn-success col-12 mt-3 text-right">Замовити</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

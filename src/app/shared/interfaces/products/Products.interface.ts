@@ -8,7 +8,7 @@ export interface IProductsRequest {
 	productSize: string;
 	price: number;
 	imagePath: string;
-	// productLabel: string;
+	count: number;
 }
 
 export interface IProductsResponse extends IProductsRequest {

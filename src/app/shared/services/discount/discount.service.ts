@@ -36,4 +36,7 @@ export class DiscountService {
     return this._http.patch<IDiscountResponse>(`${this._api.discounts}/${id}`, discount);
   }
 
+  getOne(id: number): Observable<IDiscountResponse> {
+    return this._http.get<IDiscountResponse>(`${this._api.discounts}/${id}`);
+  }
 }

@@ -7,7 +7,7 @@
 			<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="">
 			<span>Акції</span>
 		</a>
-		<a class="product" [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">
+		<a class="product" [routerLink]="[ '/products/rols' ]" routerLinkActive="active">
 			<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="">
 			<span>Роли</span>
 		</a>
@@ -53,11 +53,60 @@
 			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
 		</a>
 	</div>
-	<div class="header-bask">
+	<div class="header-bask" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
 		<div>
 			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="">
-			<i>0</i>
+			<i>{{totalCount}}</i>
 		</div>
-		<span> 0 грн</span>
+		<span><b>{{totalSum}} грн</b></span>
+	</div>
+	<div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasRightLabel">Ваше замовлення</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body m-0 p-0">
+			<ng-container *ngIf="expression; else elseTemplate">
+				<div class="row d-flex align-items-center border " *ngFor="let item of totalBasket">
+					<div class="col-3 my-3 text-center">
+						<img class="imagePath" [src]="item.imagePath" alt="d">
+					</div>
+					<div class="col-3 my-2 text-center">
+						<h6>{{item.title}}</h6>
+					</div>
+					<div class="col-3 text-end">
+						<button type="button" class="btn btn-primary">-</button>
+						<input class="text-center" [style.width]="'40px'" type="text" aria-label="Last name" disabled
+							[value]="item.count">
+						<button type="button" class="btn btn-primary">+</button>
+					</div>
+					<div class="col-2">
+						<span>{{item.count*item.price}} грн</span>
+					</div>
+					<div class="col-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+							viewBox="0 0 16 16">
+							<path
+								d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+							<path fill-rule="evenodd"
+								d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+						</svg>
+					</div>
+				</div>
+				<div class="footer d-flex justify-content-around align-items-center">
+					<div class="totalSum">
+						<span>Сума: <b>{{totalSum}}</b> грн.</span>
+					</div>
+					<div class="button w-20">
+						<button type="button" class="btn btn-light h-30"><b>Оформлення замовлення</b></button>
+					</div>
+
+				</div>
+			</ng-container>
+			<ng-template #elseTemplate>
+
+			</ng-template>
+
+		</div>
 	</div>
 </nav>

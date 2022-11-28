@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProductsRequest, IProductsResponse } from '../../interfaces/products/Products.interface';
@@ -37,8 +38,9 @@ export class ProductService {
     return this._http.patch<IProductsResponse>(`${this._api.products}/${id}`, product);
   }
 
-  filterByCategoryName(category: string): void {
-    this._http.get<IProductsRequest>(`${this._api.products}?category.path=${category}`)
+  filterByCategoryName(name: string): Observable<IProductsResponse[]> {
+
+    return this._http.get<IProductsResponse[]>(`${this._api.products}?category.path=${name}`);
   }
 
 }

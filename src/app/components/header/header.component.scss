@@ -83,13 +83,17 @@ div.header-bask{
 	align-items:center;
 }
 
+div.header-bask:hover{
+	cursor: pointer;
+}
+
 div.header-bask div{
 	position: relative;
 }
 
 i {
    position: absolute;
-   top: 0;
+   top: 0px;
    right: -7px;
    color: #252525;
    line-height: 1em;
@@ -100,4 +104,16 @@ i {
    height: 26px;
    border-radius: 100%;
    text-align: center;
+}
+
+img.imagePath{
+	height: 50px;
+}
+
+div.footer{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100px;
+	background-color: #b5d8f7;
 }
