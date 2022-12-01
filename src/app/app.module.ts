@@ -33,6 +33,7 @@ import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     AdminDiscountComponent,
     AdminCategoryComponent,
     AdminProductComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    CabinetComponent
   ],
   imports: [
     FormsModule,

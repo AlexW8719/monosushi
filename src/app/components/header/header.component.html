@@ -48,11 +48,97 @@
 		<a><b>(097) 878 08 37</b></a>
 		<p>Працюємо з <b>11:00</b> до <b>21:30</b></p>
 	</div>
-	<div class="admin">
-		<a [routerLink]="[ '/admin' ]" routerLinkActive="active">
+	<!-- when user===guest -->
+	<div class="admin" *ngIf="switchGuest">
+		<a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
 		</a>
+		<!-- <a [routerLink]="[ '/admin' ]" routerLinkActive="active">
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
+		</a> -->
+		<!-- Vertically centered modal -->
+		<div class="modal fade" id="staticBackdrop">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Вхід у кабінет</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form [formGroup]="authForm" class="row g-3 needs-validation" novalidate (ngSubmit)="login()">
+							<div class="col-md-12">
+								<label for="validationCustom01" class="form-label">Your Email</label>
+								<input formControlName="email" type="email" class="form-control" id="validationCustom01"
+									required>
+
+							</div>
+
+							<div class="col-md-12">
+								<label for="validationCustom02" class="form-label">Your password</label>
+								<input formControlName="password" type="password" class="form-control" id="validationCustom02"
+									required>
+
+							</div>
+
+							<div class="col-12">
+								<button [disabled]="authForm.invalid" data-bs-dismiss="modal" class="btn btn-primary w-100"
+									type="submit">Увійти в
+									кабінет</button>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer d-flex justify-content-between">
+						<button disabled type="button" class="btn" data-bs-dismiss="modal">Забули пароль?</button>
+						<button disabled type="button" class="btn" data-bs-dismiss="modal">Зареєструватись</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<!-- when user===admin -->
+	<div class="admin" *ngIf="switchAdmin">
+
+		<a type="button" class="btn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
+		</a>
+
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" [routerLink]="[ '/admin/-discounts' ]" routerLinkActive="active">Акції</a></li>
+			<li><a class="dropdown-item" [routerLink]="[ '/admin/catecory' ]" routerLinkActive="active">Категорії</a></li>
+			<li><a class="dropdown-item" [routerLink]="[ '/admin/products-adm' ]" routerLinkActive="active">Товари</a></li>
+			<li><a class="dropdown-item" [routerLink]="[ '/admin/orders' ]" routerLinkActive="active">Замовлення</a></li>
+
+			<li>
+				<hr class="dropdown-divider">
+			</li>
+			<li><a class="dropdown-item" (click)="exit()">Вихід</a></li>
+		</ul>
+
+
+	</div>
+
+	<!-- when user===USER -->
+	<div class="admin" *ngIf="switchUser">
+
+		<a type="button" class="btn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="">
+		</a>
+
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" [routerLink]="[ 'user' ]" routerLinkActive="active">Кабінет</a></li>
+
+
+			<li>
+				<hr class="dropdown-divider">
+			</li>
+			<li><a class="dropdown-item" (click)="exit()">Вихід</a></li>
+		</ul>
+
+
+	</div>
+
+
 	<div class="header-bask" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
 		<div>
 			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="">

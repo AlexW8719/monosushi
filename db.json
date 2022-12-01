@@ -178,5 +178,27 @@
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-7257b.appspot.com/o/images%2Fcaregories%2Fsauces.svg?alt=media&token=61a896cd-a629-4dd9-8426-324a77ea53ae",
       "id": 5
     }
+  ],
+  "auth": [
+    {
+      "role": "admin",
+      "name": "Alex",
+      "sername": "Vynn",
+      "phone": "+380680000032",
+      "email": "admin@gmail.com",
+      "password": "qwerty123",
+      "adjustment": true,
+      "id": 1
+    },
+    {
+      "role": "user",
+      "name": "Petro",
+      "sername": "Petriv",
+      "phone": "+380680000000",
+      "email": "user@gmail.com",
+      "password": "qwerty456",
+      "adjustment": true,
+      "id": 2
+    }
   ]
 }

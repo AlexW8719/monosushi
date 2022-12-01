@@ -18,6 +18,10 @@ import { ProductService } from './shared/services/product/product.service';
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 import { DiscountInfoResolver } from './shared/services/discount/discount-info.resolver';
 
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { CabinetGuard } from './shared/guards/user-cabinet/cabinet.guard';
+
 
 
 const routes: Routes = [
@@ -36,14 +40,16 @@ const routes: Routes = [
       productInfo: ProductInfoResolver
     }
   },
-
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       { path: '-discounts', component: AdminDiscountComponent },
       { path: 'catecory', component: AdminCategoryComponent },
       { path: 'products-adm', component: AdminProductComponent },
       { path: 'orders', component: AdminOrderComponent },
     ]
+  },
+  {
+    path: 'user', component: CabinetComponent, canActivate: [CabinetGuard],
   }
 ];
 
