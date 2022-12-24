@@ -30,10 +30,21 @@ import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.co
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
+
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+
+
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SharedModule } from './shared/shared.module';
+import { AuthUserDialogsComponent } from './components/auth/auth-user-dialogs/auth-user-dialogs.component';
+import { AuthAdminDialogsComponent } from './components/auth/auth-admin-dialogs/auth-admin-dialogs/auth-admin-dialogs.component';
+import { BasketComponent } from './components/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -54,17 +65,24 @@ import { CabinetComponent } from './pages/cabinet/cabinet.component';
     AdminCategoryComponent,
     AdminProductComponent,
     AdminOrderComponent,
-    CabinetComponent
+    CabinetComponent,
+    AuthUserDialogsComponent,
+    AuthAdminDialogsComponent,
+    BasketComponent,
   ],
   imports: [
     FormsModule,
-    // BrowserAnimationsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    BrowserAnimationsModule,
+    SharedModule,
+
     // ToastrModule.forRoot(),
   ],
   providers: [],

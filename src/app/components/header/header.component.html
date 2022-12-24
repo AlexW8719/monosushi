@@ -60,37 +60,26 @@
 		<div class="modal fade" id="staticBackdrop">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Вхід у кабінет</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form [formGroup]="authForm" class="row g-3 needs-validation" novalidate (ngSubmit)="login()">
-							<div class="col-md-12">
-								<label for="validationCustom01" class="form-label">Your Email</label>
-								<input formControlName="email" type="email" class="form-control" id="validationCustom01"
-									required>
-
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<img src="../../../assets/img/users/admin.jpg" alt="">
+									<a (click)="singAdmins()" data-bs-dismiss="modal"
+										class="mt-1 btn btn-primary w-100">ADMIN</a>
+								</div>
 							</div>
-
-							<div class="col-md-12">
-								<label for="validationCustom02" class="form-label">Your password</label>
-								<input formControlName="password" type="password" class="form-control" id="validationCustom02"
-									required>
-
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<img src="../../../assets/img/users/user.jpg" alt="">
+									<a class="mt-1 btn btn-primary w-100" (click)="singUsers()" data-bs-dismiss="modal">USER</a>
+								</div>
 							</div>
+						</div>
+					</div>
 
-							<div class="col-12">
-								<button [disabled]="authForm.invalid" data-bs-dismiss="modal" class="btn btn-primary w-100"
-									type="submit">Увійти в
-									кабінет</button>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer d-flex justify-content-between">
-						<button disabled type="button" class="btn" data-bs-dismiss="modal">Забули пароль?</button>
-						<button disabled type="button" class="btn" data-bs-dismiss="modal">Зареєструватись</button>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -146,6 +135,7 @@
 		</div>
 		<span><b>{{totalSum}} грн</b></span>
 	</div>
+
 	<div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 		<div class="offcanvas-header">
 			<h5 class="offcanvas-title" id="offcanvasRightLabel">Ваше замовлення</h5>

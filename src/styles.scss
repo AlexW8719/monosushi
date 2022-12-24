@@ -84,3 +84,5 @@ meter {
 :where([draggable="true"]) {
    -webkit-user-drag: element;
 }
+
+@import 'app/shared/styles/theme-material';

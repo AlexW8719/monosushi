@@ -1,0 +1,73 @@
+<ng-container *ngIf="switchUser; else elseTemplate">
+	<div class="text-center mb-2">
+		<h1 class="modal-title fs-5" id="staticBackdropLabel">Вхід у кабінет</h1>
+	</div>
+
+
+	<form [formGroup]="authUser" class="singInUserForm">
+		<div class="form-group">
+			<mat-form-field appearance="outline">
+				<mat-label>Email</mat-label>
+				<input matInput type="email" formControlName="email">
+			</mat-form-field>
+		</div>
+		<div class="form-group">
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input matInput type="password" formControlName="password">
+			</mat-form-field>
+		</div>
+	</form>
+
+	<div class="button-main">
+		<button mat-dialog-close mat-raised-button color="primary" (click)="login()">УВІЙТИ У КАБІНЕТ</button>
+	</div>
+
+	<div class="text-end mt-2">
+		<button mat-button (click)="openSingUpForm()">Зареєструватись</button>
+	</div>
+
+</ng-container>
+
+
+<ng-template #elseTemplate>
+	<form class="row g-3" [formGroup]="authUser">
+		<h3 class="text-center">Зареєструватись</h3>
+		<div class="col-md-6">
+
+			<input formControlName="firstName" type="text" placeholder="Ваше ім'я" class="form-control"
+				id="validationCustom01" required>
+			<div class="valid-feedback">
+				Looks good!
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<input formControlName="lastName" type="text" placeholder="Ваше прізвище" class="form-control"
+				id="validationCustom02" required>
+			<div class="valid-feedback">
+				Looks good!
+			</div>
+		</div>
+		<div class="col-md-12">
+			<input formControlName="phoneNumber" class="form-control" value="380" name="phone" type="number"
+				placeholder="Ваш телефон" id="validationCustom03" required>
+		</div>
+
+		<div class="col-md-12">
+			<input formControlName="email" type="email" class="form-control" placeholder="Ваш емейл" required>
+		</div>
+		<div class="col-md-12">
+			<input formControlName="password" type="password" class="form-control" placeholder="Пароль" required>
+		</div>
+
+		<div class="col-12">
+			<button class="btn btn-primary col-12" type="submit" (click)="registerUser()">Зареєструватись</button>
+		</div>
+		<div class="col-12 text-center">
+			<p>
+				Вже зареєстровані? <a class="btn" (click)="openSingInForm()"><b>Увійти!</b></a>
+			</p>
+		</div>
+	</form>
+</ng-template>
